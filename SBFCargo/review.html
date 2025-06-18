@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBF Cargo - Under Construction</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+            margin: 0;
+            padding: 20px; /* Add some padding for smaller screens */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+        .container {
+            max-width: 960px; /* Max width for larger screens */
+            width: 100%; /* Full width on smaller screens */
+            background-color: #ffffff; /* White background for the main content */
+            border-radius: 12px; /* Rounded corners */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            overflow: hidden; /* Hide overflow for rounded corners */
+            display: flex;
+            flex-direction: column; /* Stack sections vertically on small screens */
+        }
+
+        /* Responsive adjustments for layout */
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row; /* Side-by-side on medium and larger screens */
+            }
+        }
+
+        .sidebar {
+            background-color: #1a202c; /* Dark navy for sidebar */
+            color: #e2e8f0; /* Light text for sidebar */
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align content to the top */
+            flex-shrink: 0; /* Prevent shrinking */
+            min-width: 250px; /* Minimum width for the sidebar */
+            border-bottom-left-radius: 0; /* Override default rounded corners for mobile */
+            border-top-right-radius: 0;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                border-top-left-radius: 12px;
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 0;
+            }
+        }
+
+        .main-content {
+            flex-grow: 1; /* Allow main content to take remaining space */
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .alert-box {
+            position: fixed; /* Fixed position */
+            top: 50%; /* 20px from the top */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for perfect centering */
+            background-color: #ef4444; /* Red background for alert */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it's on top */
+            display: none; /* Hidden by default */
+            font-weight: 600;
+            text-align: center;
+            max-width: 90%; /* Max width for responsiveness */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Under Construction Alert Box -->
+    <div id="underConstructionAlert" class="alert-box">
+        <p>This site is currently being worked on. We appreciate your patience!</p>
+    </div>
+
+    <!-- Main Container for Dashboard -->
+    <div class="container">
+        <!-- Sidebar - Company Logo and Navigation (Conceptual) -->
+        <aside class="sidebar">
+            <div class="mb-8">
+                <!-- Company Logo Placeholder -->
+                <img src="./logo.jpg" width="150px" alt="SBF Cargo Logo" class="rounded-full border-4 border-gray-700 shadow-lg">
+            </div>
+            <h1 class="text-3xl font-bold mb-2 text-center">SBF Cargo</h1>
+            <p class="text-sm text-gray-400 text-center">We deliver in a blink...</p>
+
+            <nav class="mt-10 w-full">
+                <ul class="space-y-4">
+                    <li><a href="#" class="block py-2 px-4 rounded-md hover:bg-gray-700 transition duration-200 ease-in-out text-white font-medium bg-gray-700">Dashboard</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md hover:bg-gray-700 transition duration-200 ease-in-out text-gray-300">Services (Coming Soon)</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md hover:bg-gray-700 transition duration-200 ease-in-out text-gray-300">Tracking (Coming Soon)</a></li>
+                    <li><a href="#down" class="block py-2 px-4 rounded-md hover:bg-gray-700 transition duration-200 ease-in-out text-gray-300">Contact us</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content - Company Profile Dashboard -->
+        <main class="main-content">
+            <h2 class="text-4xl font-extrabold text-gray-800 mb-6 text-center md:text-left">Company Overview</h2>
+
+            <!-- About Us Section -->
+            <section class="bg-blue-50 p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold text-blue-800 mb-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    About SBF Cargo
+                </h3>
+                <p class="text-gray-700 leading-relaxed">
+                    SBF Cargo is a leading logistics and freight forwarding company committed to providing reliable, efficient, and cost-effective shipping solutions worldwide. With years of experience and a vast network of partners, we ensure your cargo reaches its destination safely and on time. We specialize in air, sea, and land freight, customs clearance, and warehousing services.
+                </p>
+            </section>
+
+            <!-- Key Features/Services Highlight -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-green-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-green-800 mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.006 12.006 0 002 12c0 2.75 1.581 5.281 4.194 6.368L12 22l5.806-3.632C20.419 17.281 22 14.75 22 12c0-3.37-2.314-6.387-5.382-7.016z" />
+                        </svg>
+                        Our Commitment
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        We are dedicated to exceeding customer expectations through innovative logistics solutions, advanced technology, and a team of highly skilled professionals. Your business is our priority, and we strive for excellence in every shipment.
+                    </p>
+                </div>
+                <div class="bg-purple-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-purple-800 mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h.01M16 11h.01M9 15h.01M15 15h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Global Reach
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        With operations spanning key global trade routes, SBF Cargo offers seamless connectivity to major ports and business centers worldwide. We are equipped to handle diverse cargo types, from small parcels to oversized shipments.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Contact Information Placeholder -->
+            <section class="bg-gray-100 p-6 rounded-lg shadow-md" id="down">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684L10.5 9.87a1 1 0 00.54.54l3.146 1.573a1 1 0 01.684.949V19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                    </svg>
+                    Contact (Head office)
+                </h3>
+                <p class="text-gray-700">
+                    While our full contact page is under development, you can reach us for urgent inquiries at:
+                </p>
+                <ul class="mt-2 list-disc list-inside text-gray-700">
+                    <li>Email: sbfcargoandfreight@gmail.com</li>
+                    <li>Phone 1: +234-8108805563 (Head office)</li>
+                    <li>Whatsapp 1: +234-7088716101 (Head office)</li>
+                    <li>Address 1: Plot 20A, Lateef Salami Street, opp. Rollace Hotel, off MMA road, Airport Bus stop, Ajao Estate, Lagos state.</li>
+                </ul>
+            </section>
+            <section class="bg-gray-100 p-6 rounded-lg shadow-md" id="down">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684L10.5 9.87a1 1 0 00.54.54l3.146 1.573a1 1 0 01.684.949V19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                    </svg>
+                    Contact (Benin Office)
+                </h3>
+                <p class="text-gray-700">
+                    While our full contact page is under development, you can reach us for urgent inquiries at:
+                </p>
+                <ul class="mt-2 list-disc list-inside text-gray-700">
+                    <li>Email: sbfcargoandfreight@gmail.com</li>
+                    <li>Phone 2: +234-7072270098 (Benin office)</li>
+                    <li>Whatsapp 2: +234-9020211791 (Benin office)</li>
+                    <li>Address 2: Suite A9, 188 Elizabeth Nmoye Plaza, Benin Lagos Road, opposite Uselu market Benin City.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // JavaScript to display the alert box on page load and then every 10 seconds
+        window.onload = function() {
+            const alertBox = document.getElementById('underConstructionAlert');
+            const visibilityDuration = 3000; // Visible for 3 seconds
+            const totalCycleDuration = 50000; // Cycle repeats every 10 seconds (10000 ms)
+
+            function showAndHideAlert() {
+                // Show the alert
+                alertBox.style.display = 'block';
+
+                // Hide it after 'visibilityDuration' milliseconds
+                setTimeout(() => {
+                    alertBox.style.display = 'none';
+                }, visibilityDuration);
+            }
+
+            // Immediately show the alert when the page loads
+            showAndHideAlert();
+
+            // Set an interval to repeat the show-and-hide cycle every 'totalCycleDuration' milliseconds
+            setInterval(() => {
+                showAndHideAlert();
+            }, totalCycleDuration);
+        };
+    </script>
+</body>
+</html>
