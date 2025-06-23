@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBF Cargo - Modern Logistics & Freight Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        header{
+            background-image: url(./road.jpg);
+            background-size: cover;
+            background-position: center;
+            background-position-y: bottom;
+            text-shadow: -1px 1px 30px white;
+            color: rgb(57, 15, 15);
+            padding-top: 80px;
+        }
+        header a{
+            text-shadow: none;
+        }
+        nav{
+            position: fixed;
+            top: -15px;
+            padding-top: 40px;
+            left: 20px;
+            z-index: 999;
+            width: 100%;
+            margin: 0;
+            height: max-content;
+        }
+        .space {
+            width: 100%;
+            height: 60px;
+        }
+        .nav{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            height: 100vh;
+            position: fixed;
+            top: 0px;
+            right: 0;
+            background: white;
+            z-index: 9999;
+            transition: all .3s ease;
+            transform: translateX(1000px);
+        }
+        .up{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        button#close{
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-right: 10px;
+            margin-bottom: 100px;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        .nav button{
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+        ::-webkit-scrollbar{
+            background: rgb(244, 243, 243);
+            width: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: blue;
+            border-radius: 0 20px;
+        }
+        #close2{
+            width: calc(100% - 300px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            background: rgba(169, 169, 169, 0.405);
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+            transform: translateX(-1500px);
+            transition: all .3s ease-in-out;
+        }
+        @media (max-width: 900px) {
+            nav{
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 leading-normal tracking-wide">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg rounded-b-xl mx-auto mt-4 px-4 py-3 max-w-7xl flex items-center justify-between transition-all duration-300 ease-in-out">
+        <div class="flex items-center">
+            <img src="./logo.jpg" alt="SBF Cargo Logo" class="h-10 w-10 rounded-full mr-3 shadow-md">
+            <a href="#" class="text-2xl font-extrabold text-blue-700 tracking-tight">SBF Cargo</a>
+        </div>
+        <div class="hidden md:flex">
+            <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 rounded-lg px-3 py-2">Services</a>
+            <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 rounded-lg px-3 py-2">About Us</a>
+            <a href="#tracking" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 rounded-lg px-3 py-2">Tracking</a>
+            <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 rounded-lg px-3 py-2">Contact</a>
+        </div>
+        <div class="md:hidden">
+            <button id="open" class="text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 rounded-md transition duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <div class="space"></div>
+    <!-- Hero Section -->
+    <header class="relative py-20 md:py-32 overflow-hidden shadow-xl mt-6 rounded-3xl mx-auto max-w-7xl">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight drop-shadow-lg">
+                We deliver in a blink...
+            </h1>
+            <p class=" sm:text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
+                SBF Cargo provides integrated freight solutions, ensuring fast, reliable, and secure delivery worldwide.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-white text-blue-700 hover:bg-blue-100 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                    Get a Quote
+                </a>
+                <a href="#services" class="bg-blue-700 text-white border-2 border-white hover:bg-blue-800 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                    Our Services
+                </a>
+            </div>
+        </div>
+        <!-- Background elements for modern look -->
+        <div class="absolute inset-0 z-0 opacity-20">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" fill="currentColor">
+                <circle cx="20" cy="20" r="15" class="text-blue-400"></circle>
+                <circle cx="80" cy="50" r="25" class="text-purple-400"></circle>
+                <circle cx="40" cy="90" r="10" class="text-blue-400"></circle>
+                <rect x="60" y="10" width="15" height="15" rx="5" ry="5" class="text-purple-400"></rect>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50 rounded-3xl mx-auto max-w-7xl mt-8 shadow-xl">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-10">Our Integrated Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-100">
+                    <div class="text-blue-600 mb-4 mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-blue-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4m0-10h.01M12 15h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Air Freight</h3>
+                    <p class="text-gray-600">Fast and reliable air cargo solutions for urgent shipments, connecting major global hubs efficiently.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-green-100">
+                    <div class="text-green-600 mb-4 mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-green-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-6v6m-3-6v6m-3-6v6M7 21h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Warehousing & Distribution</h3>
+                    <p class="text-gray-600">Secure storage and efficient distribution solutions, optimizing your supply chain from end to end.</p>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-yellow-100">
+                    <div class="text-yellow-600 mb-4 mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-yellow-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Customs Clearance</h3>
+                    <p class="text-gray-600">Expert assistance with all customs formalities, ensuring smooth and compliant cross-border movements.</p>
+                </div>
+                <!-- Service Card 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-red-100">
+                    <div class="text-red-600 mb-4 mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-red-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v2m-3-2v2m-3-2v2m12 0v2m-3-2v2m-3-2v2M3 13V5a2 2 0 012-2h14a2 2 0 012 2v8m-14 0V9a2 2 0 012-2h10a2 2 0 012 2v4m-14 0h14"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Door-to-Door Delivery</h3>
+                    <p class="text-gray-600">Complete logistics chain management, from pickup at origin to final delivery at destination.</p>
+                </div>
+                <!-- Service Card 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-indigo-100">
+                    <div class="text-indigo-600 mb-4 mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-indigo-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Integrated Tracking</h3>
+                    <p class="text-gray-600">Real-time visibility and status updates for your shipments through our advanced tracking system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white rounded-3xl mx-auto max-w-7xl mt-8 shadow-xl">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+            <div class="md:w-1/2">
+                <img src="./logo.jpg" alt="SBF Cargo Logistics" class="rounded-3xl shadow-xl border border-gray-200">
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-6">About SBF Cargo</h2>
+                <p class="text-gray-600 text-lg mb-4">
+                    SBF Cargo is a leading provider of integrated logistics and freight forwarding services. With years of experience and a global network, we offer comprehensive solutions tailored to meet the unique needs of businesses across various industries.
+                </p>
+                <p class="text-gray-600 text-lg">
+                    Our commitment to efficiency, reliability, and customer satisfaction drives us to deliver seamless shipping experiences, from local distribution to complex international freight movements. We leverage cutting-edge technology to ensure transparency and control throughout the supply chain.
+                </p>
+                <a href="#contact" class="inline-block mt-8 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Section -->
+    <section id="tracking" class="py-16 bg-gray-900 text-white rounded-3xl mx-auto max-w-7xl mt-8 shadow-xl">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">Track Your Shipment</h2>
+            <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+                Enter your tracking number below to get real-time updates on your cargo's status and location.
+            </p>
+            <div class="max-w-md mx-auto flex flex-col sm:flex-row gap-4 bg-gray-800 p-3 rounded-full shadow-inner">
+                <input type="text" placeholder="Enter Tracking Number..."
+                       class="flex-grow bg-gray-700 text-white placeholder-gray-400 py-3 px-6 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 border border-transparent focus:border-blue-500"
+                       id="trackingInput">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:scale-105"
+                        onclick="trackShipment()">
+                    Track Now
+                </button>
+            </div>
+            <div id="trackingResult" class="mt-8 p-4 bg-gray-800 rounded-xl max-w-lg mx-auto hidden shadow-lg border border-gray-700">
+                <p class="text-gray-300 text-sm">Tracking information will appear here.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-blue-700 text-white rounded-3xl mx-auto max-w-7xl mt-8 shadow-xl">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">Contact Us</h2>
+            <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+                While our full contact page is under development, you can reach us for urgent inquiries at:
+            </p>
+
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-2xl text-gray-800 text-left">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">Head Office</h3>
+                    <p class="mb-2"><span class="font-semibold">Email:</span> sbfcargoandfreight@gmail.com</p>
+                    <p class="mb-2"><span class="font-semibold">Phone 1:</span> +234-8108805563</p>
+                    <p class="mb-2"><span class="font-semibold">Whatsapp 1:</span> +234-7088716101</p>
+                    <p><span class="font-semibold">Address:</span> Plot 20A, Lateef Salami Street, opp. Rollace Hotel, off MMA road, Airport Bus stop, Ajao Estate, Lagos state.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">Benin Office</h3>
+                    <p class="mb-2"><span class="font-semibold">Email:</span> sbfcargoandfreight@gmail.com</p>
+                    <p class="mb-2"><span class="font-semibold">Phone 2:</span> +234-7072270098</p>
+                    <p class="mb-2"><span class="font-semibold">Whatsapp 2:</span> +234-9020211791</p>
+                    <p><span class="font-semibold">Address:</span> Suite A9, 188 Elizabeth Nmoye Plaza, Benin Lagos Road, opposite Uselu market Benin City.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12 mt-8 rounded-t-3xl mx-auto max-w-7xl shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-extrabold text-white tracking-tight">SBF Cargo</a>
+                    <p class="text-gray-500 text-sm mt-2">We deliver in a blink...</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-sm text-gray-500">
+                &copy; 2024 SBF Cargo. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <div class="nav">
+        <div class="up">
+            <button id="close">X</button>
+        </div>
+        <button onclick="window.location = '#services'">Services</button>
+        <button onclick="window.location = '#about'">About Us</button>
+        <button onclick="window.location = '#tracking'">Tracking</button>
+        <button onclick="window.location = '#contact'">Contact us</button>
+    </div>
+    <button id="close2"></button>
+    <script>
+        function trackShipment() {
+            const trackingInput = document.getElementById('trackingInput').value.trim();
+            const trackingResult = document.getElementById('trackingResult');
+
+            if (trackingInput) {
+                // Simulate tracking logic
+                trackingResult.classList.remove('hidden');
+                trackingResult.innerHTML = `
+                    <p class="font-bold text-lg text-blue-300 mb-2">Tracking Number: ${trackingInput}</p>
+                    <p class="text-green-400 mb-1">Status: In Transit</p>
+                    <p class="text-gray-300 mb-1">Last Update: ${new Date().toLocaleString()}</p>
+                    <p class="text-gray-300">Estimated Delivery: ${new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>
+                `;
+            } else {
+                trackingResult.classList.remove('hidden');
+                trackingResult.innerHTML = `<p class="text-red-400">Please enter a tracking number.</p>`;
+            }
+        }
+        let navbtn = document.querySelector('#open');
+        let closebtn = document.querySelector('#close');
+        let bodynav = document.querySelector('.nav');
+        let button2close = document.querySelector('#close2');
+        navbtn.addEventListener('click', ()=>{
+            bodynav.style.transform = 'translateX(0)'
+            button2close.style.transform = 'translateX(0)'
+        })
+        closebtn.addEventListener('click', ()=>{
+            bodynav.style.transform = 'translateX(1000px)'
+            button2close.style.transform = 'translateX(-1000px)'
+        })
+        button2close.addEventListener('click', ()=>{
+            bodynav.style.transform = 'translateX(1000px)'
+            button2close.style.transform = 'translateX(-15000px)'
+        })
+    </script>
+</body>
+</html>

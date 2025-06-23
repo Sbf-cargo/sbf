@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3D Container with Divs</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    body {
+      margin: 0;
+      background: radial-gradient(rgb(143, 143, 243),black);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      perspective: 1000px;
+    }
+
+    .scene {
+      width: 300px;
+      height: 130px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotateYOnly 10s infinite linear;
+    }
+
+    .face {
+      position: absolute;
+      width: 300px;
+      height: 130px;
+      background: #2f4f4f;
+      border: 2px solid #444;
+      opacity: 0.95;
+    }
+
+    .top, .bottom {
+      width: 300px;
+      height: 120px;
+      background: url(topnbottom.jpeg);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .left, .right {
+      width: 120px;
+      height: 130px;
+    }
+    .left{
+      background: url(left.jpeg);
+      background-position: center;
+      background-size: cover;
+    }
+    .right{
+      background: url(right.jpeg);
+      background-position: center;
+      background-size: cover;
+    }
+    .front, .back {
+      width: 300px;
+      height: 130px;
+      background: url(center.jpeg);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .front  { transform: translateZ(60px); }
+    .back   { transform: rotateY(180deg) translateZ(60px); }
+    .left   { transform: rotateY(-90deg) translateZ(60px); }
+    .right  { transform: rotateY(90deg) translateZ(240px); }
+    .top    { transform: rotateX(90deg) translateZ(60px); }
+    .bottom { transform: rotateX(-90deg) translateZ(70px); }
+
+    @keyframes rotateYOnly {
+      from { transform: rotateY(0deg) rotateX(0deg); }
+      to   { transform: rotateY(360deg) rotateX(720deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="face front"></div>
+    <div class="face back"></div>
+    <div class="face left"></div>
+    <div class="face right"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+<script>
+  setTimeout(()=>{
+    window.location = './homepage.html'
+  },5000)
+</script>
+</body>
+</html>
