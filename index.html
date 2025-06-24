@@ -1,85 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="./SBFCargo/logo.html">
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            transition: all .3s ease-in;
-            font-family: arial;
-            color: white;
-        }
-        body{
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: black;
-        }
-        video{
-            width: 100%;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            min-height: 100vh;
-        }
-        source{
-            width: 100%;
-            height: 100vh;
-            min-height: 100vh;
-        }
-        #videoDiv {width: 100%; 
-                    height: 360px; 
-                    position: relative;}
-        #video1 { margin: auto; display: block;}
-        #videoMessage { position: absolute; top: 0; left: 0;
-                display: flex;
-                flex-direction: column; 
-                justify-content: center;
-                align-items: center; 
-                width: 100%;
-                height: 100%;}
-        h1{
-            font-size: 50px;
-            word-wrap: normal;
-            text-align: center;
-            margin-bottom: 10px;
-            text-shadow: 5px 5px 10px black;
-        }
-        h2{
-            font-size: 30px;
-            margin-bottom: 20px;
-            text-shadow: 5px 5px 10px black;
-        }
-        .wide{
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.055);
-            position: fixed;
-            top: 0;
-            backdrop-filter: blur(10px);
-        }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBF Cargo and Freight</title>
-</head>
-<body>
-    <div id="videoDiv"> 
-    <video id="video1" preload="" autoplay="" muted="" playsinline="" loop="">
-    <source src="Plane.mp4" type="video/mp4">
-    </video> 
-    <div class="wide">
-        <div id="videoMessage" class="styling">
-    <h1>Welcome to SBF Cargo and Freight.</h1>
-    <h2>We Deliver in a blink...</h2>
-    <h2>Please wait....</h2>
+    <title>SBF Cargo & Freight - Loading...</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for the loading dots animation */
+        @keyframes pulseDot {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.7;
+            }
+        }
 
-    </div>
-    
-    </div>
+        /* Apply animation to each dot with a slight delay */
+        .dot-animation span:nth-child(1) {
+            animation: pulseDot 1.4s ease-in-out infinite;
+        }
+        .dot-animation span:nth-child(2) {
+            animation: pulseDot 1.4s ease-in-out infinite 0.2s; /* Delay for second dot */
+        }
+        .dot-animation span:nth-child(3) {
+            animation: pulseDot 1.4s ease-in-out infinite 0.4s; /* Delay for third dot */
+        }
+
+        /* Custom CSS for the fade-in effect of content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in-content > * {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0; /* Start invisible */
+        }
+
+        .fade-in-content h1 { animation-delay: 0.2s; }
+        .fade-in-content p:nth-of-type(1) { animation-delay: 0.4s; }
+        .fade-in-content svg { animation-delay: 0.6s; }
+        .fade-in-content p:nth-of-type(2) { animation-delay: 0.8s; }
+        .fade-in-content .dot-animation { animation-delay: 1s; }
+
+        /* Ensure Inter font is applied globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars */
+            position: relative; /* For absolute positioning of overlay */
+            /* Background image styles */
+            background-image: url('https://www.dotefl.com/wp-content/uploads/2023/07/Road-vs-street.jpg');
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents repeating */
+        }
+
+        /* Overlay for text readability with a gradient */
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Using a linear-gradient for a "gradient filled" effect */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+            z-index: 0; /* Above image, below content */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+
+    <!-- Image Overlay for Readability -->
+    <div class="image-overlay"></div>
+
+    <div class="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-12 text-center max-w-lg w-full transform transition-all duration-300 ease-in-out scale-100 hover:scale-105 fade-in-content z-10 relative">
+        <!-- Company Logo/Icon (New Plane SVG) -->
+        <div class="mb-6">
+            <svg class="w-20 h-20 text-blue-600 mx-auto animate-bounce-subtle" viewBox="0 0 960 960" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#0084ff">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <g clip-path="url(#clip0_1464_7948)">
+                        <path d="M879.455 139.428C875.337 166.002 865.072 191.637 847.246 211.727C812.295 253.128 773.447 290.826 731.448 325.044C665.687 380.762 597.731 433.892 530.501 487.809C485.228 522.303 438.989 555.516 392.931 588.928C371.419 608.645 350.309 633.678 317.635 629.927C271.962 617.752 287.274 559.124 310.876 532.727C346.462 487.504 384.423 444.173 423.127 401.594C518.236 296.456 691.896 87.9521 841.06 85.3984C868.23 90.5966 880.75 112.538 879.455 139.428Z" fill="#0074e0"></path>
+                        <path d="M811.259 665.15C811.772 686.29 803.019 702.399 786.811 715.121C734.136 768.578 625.992 541.253 600.483 503.259C592.118 486.429 591.298 463.749 605.995 450.924C634.741 425.515 663.776 400.433 692.734 375.265C711.785 355.866 740.814 335.604 757.114 369.72C781.941 466.339 803.362 565.395 811.259 665.15Z" fill="#0074e0"></path>
+                        <path d="M243.227 129.194C245.123 95.895 287.749 83.935 315.343 92.4714C401.347 116.265 487.097 142.91 569.663 176.645C586.414 186.663 589.475 205.285 575.878 219.238C542.408 253.358 507.118 285.716 474.415 320.606C463.255 332.46 457.127 334.3 443.672 325.346C428.524 315.266 413.574 304.659 399.756 292.855C362.557 255.316 246.849 177.38 243.227 129.194Z" fill="#0074e0"></path>
+                        <path d="M381.422 818.983C382.036 809.804 388.626 801.987 396.609 794.905C452.037 747.128 505.638 697.452 557.236 645.571C565.236 637.877 574.006 630.944 582.742 624.067C603.366 606.342 626.18 632.147 606.413 650.5C547.346 708.956 487.396 766.532 428.663 825.322C415.96 841.658 381.498 848.645 381.422 818.983Z" fill="#0074e0"></path>
+                        <path d="M299.394 301.955C253.828 364.559 193.223 416.964 142.237 475.792C132.351 486.032 124.11 498.878 111.123 505.427C94.791 514.974 73.4183 495.444 82.7083 478.673C86.0728 471.897 91.4947 465.897 96.8819 460.413C144.012 415.759 186.896 366.971 232.078 320.399C248.035 306.719 288.438 261.654 299.394 301.955Z" fill="#0074e0"></path>
+                        <path d="M297.801 681.185C280.545 709.908 248.877 731.396 225.952 756.135C200.428 778.178 179.649 807.308 149.592 823.247C142.998 826.282 136.034 825.714 130.489 820.204C118.609 808.443 130.848 792.564 139.558 783.23C179.919 745.319 220.611 707.76 261.263 670.159C273.313 655.337 297.503 656.624 297.801 681.185Z" fill="#0074e0"></path>
+                        <path d="M477.17 645.218C472.714 729.395 380.207 685.882 393.242 621.322C397.894 602.578 418.726 593.869 431.97 581.536C441.465 574.143 452.012 577.112 461.745 580.522C474.781 588.055 472.773 628.869 477.17 645.218Z" fill="#0074e0"></path>
+                        <path d="M239.188 466.68C254.279 426.677 297.726 429.322 329.479 447.806C369.367 469.597 321.938 503.754 304.587 523.823C302.106 526.325 296.571 527.869 293.141 527.023C261.535 520.884 246.992 496.748 239.188 466.68Z" fill="#0074e0"></path>
+                        <path d="M611.631 875.47C587.366 876.662 581.795 852.731 596.739 838.615C605.081 830.917 613.421 823.212 621.596 815.338C639.325 798.259 656.93 781.051 674.642 763.955C681.576 756.571 693.8 753.23 701.12 761.009C709.07 768.206 706.09 780.432 698.74 787.48C680.3 807.512 661.788 827.476 643.329 847.491C635.137 857.531 622.746 870.926 611.631 875.47Z" fill="#0074e0"></path>
+                        <path d="M142.756 259.147C121.484 259.546 111.763 238.457 124.225 224.123C129.176 218.439 134.964 213.456 140.587 208.391C154.778 196.322 167.863 182.605 183.1 171.897C199.216 162.177 217.652 180.933 208.054 196.967C193.209 216.426 174.245 232.79 157.158 250.311C152.491 254.78 145.921 257.264 142.756 259.147Z" fill="#0074e0"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_1464_7948">
+                            <rect width="800" height="790.909" fill="white" transform="translate(80 85)"></rect>
+                        </clipPath>
+                    </defs>
+                </g>
+            </svg>
+        </div>
+
+        <!-- Company Name -->
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-3 leading-tight">
+            SBF Cargo & Freight
+        </h1>
+        <!-- Tagline -->
+        <p class="text-lg sm:text-xl text-gray-600 mb-8 font-medium">
+            We Deliver In a Blink ...
+        </p>
+
+        <!-- Loading Message -->
+        <p class="text-xl sm:text-2xl text-gray-700 mb-6 font-semibold">
+            Please wait while we prepare your journey...
+        </p>
+
+        <!-- Animated Loading Dots -->
+        <div class="dot-animation flex justify-center space-x-2">
+            <span class="block w-4 h-4 bg-blue-500 rounded-full"></span>
+            <span class="block w-4 h-4 bg-indigo-500 rounded-full"></span>
+            <span class="block w-4 h-4 bg-teal-500 rounded-full"></span>
+        </div>
     </div>
 <script>
     setTimeout(()=>{
