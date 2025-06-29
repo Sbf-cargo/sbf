@@ -543,10 +543,10 @@
         <div class="up">
             <button id="close">X</button>
         </div>
-        <button onclick="window.location = '#services'">Services</button>
-        <button onclick="window.location = '#about'">About Us</button>
-        <button onclick="window.location = '#tracking'">Tracking</button>
-        <button onclick="window.location = '#contact'">Contact us</button>
+        <button onclick="a()">Services</button>
+        <button onclick="b()">About Us</button>
+        <button onclick="c()">Tracking</button>
+        <button onclick="d()">Contact us</button>
     </div>
     <button id="close2"></button>
     <script>
@@ -679,6 +679,26 @@
             sliderContainer.addEventListener('mouseenter', stopAutoPlay);
             sliderContainer.addEventListener('mouseleave', startAutoPlay);
         });
+        function a(){
+            window.location = '#services';
+            bodynav.style.transform = 'translateX(1000px)'
+            button2close.style.transform = 'translateX(-1000px)'
+        }
+        function b(){
+            window.location = '#about';
+            bodynav.style.transform = 'translateX(1000px)'
+            button2close.style.transform = 'translateX(-1000px)'
+        }
+        function c(){
+            window.location = '#tracking';
+            bodynav.style.transform = 'translateX(1000px)'
+            button2close.style.transform = 'translateX(-1000px)'
+        }
+        function d(){
+            window.location = '#contact';
+            bodynav.style.transform = 'translateX(1000px)'
+            button2close.style.transform = 'translateX(-1000px)'
+        }
     </script>
 </body>
 </html>
