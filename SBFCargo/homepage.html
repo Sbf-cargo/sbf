@@ -127,6 +127,15 @@
             color: white;
             text-shadow: 0 0 10px black;
         }
+        section.center{
+            width: 100%;
+            height: max-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
         @media (max-width: 900px) {
             nav{
                 left: 0;
@@ -143,7 +152,7 @@
     <nav class="bg-white shadow-lg rounded-b-xl mx-auto mt-4 px-4 py-3 max-w-7xl flex items-center justify-between transition-all duration-300 ease-in-out">
         <div class="flex items-center">
             <img src="./logo.jpg" alt="SBF Cargo Logo" class="h-10 w-10 rounded-full mr-3 shadow-md">
-            <a href="#" class="text-2xl font-extrabold text-blue-700 tracking-tight" style="color: brown; font-size: 15px; margin-left: 20px;">SBF Cargo <br> and Freight services</a>
+            <a href="#" class="text-2xl font-extrabold text-blue-700 tracking-tight" style="color: brown; font-size: 15px; margin-left: 20px; display: flex; flex-direction: column;"><span class="unit">SBF Cargo</span><span class="unit">and Freight services</span></a>
         </div>
         <div class="hidden md:flex">
             <a href="./homepage.html#services" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 rounded-lg px-3 py-2">Services</a>
@@ -434,7 +443,8 @@
         </div>
                 </div>
     </section>
-    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-lg">
+    <section class="center">
+        <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-lg">
         <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Contact SBF Cargo & Freight</h1>
         <p class="text-center text-gray-600 mb-8">
             We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.
@@ -507,6 +517,7 @@
             <div id="formMessage" class="mt-4 text-center text-sm font-medium"></div>
         </form>
     </div>
+    </section>
     <!-- Footer -->
     <footer class="bg-gray-800 text-gray-300 py-12 mt-8 rounded-t-3xl mx-auto max-w-7xl shadow-inner">
         <div class="container mx-auto px-4 text-center">
