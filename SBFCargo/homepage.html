@@ -450,7 +450,7 @@
             We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.
         </p>
 
-        <form id="contactForm" class="space-y-6">
+        <form id="contactForm" class="space-y-6"  id="my-form" action="https://formspree.io/f/xyzjozge" method="POST">
             <!-- Full Name Input -->
             <div>
                 <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
@@ -549,24 +549,36 @@
     </div>
     <button id="close2"></button>
     <script>
-        function trackShipment() {
-            const trackingInput = document.getElementById('trackingInput').value.trim();
-            const trackingResult = document.getElementById('trackingResult');
-
-            if (trackingInput) {
-                // Simulate tracking logic
-                trackingResult.classList.remove('hidden');
-                trackingResult.innerHTML = `
-                    <p class="font-bold text-lg text-blue-300 mb-2">Tracking Number: ${trackingInput}</p>
-                    <p class="text-green-400 mb-1">Status: In Transit</p>
-                    <p class="text-gray-300 mb-1">Last Update: ${new Date().toLocaleString()}</p>
-                    <p class="text-gray-300">Estimated Delivery: ${new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>
-                `;
-            } else {
-                trackingResult.classList.remove('hidden');
-                trackingResult.innerHTML = `<p class="text-red-400">Please enter a tracking number.</p>`;
-            }
-        }
+         var form = document.getElementById("my-form");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        alert("Thanks for your submission!");
+        form.reset()
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+          } else {
+            status.innerHTML = "Oops! There was a problem submitting your form"
+          }
+        })
+      }
+    }).catch(error => {
+      status.innerHTML = "Oops! There was a problem submitting your form"
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
         let navbtn = document.querySelector('#open');
         let closebtn = document.querySelector('#close');
         let bodynav = document.querySelector('.nav');
