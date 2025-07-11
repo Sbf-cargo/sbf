@@ -138,6 +138,123 @@
             margin-top: 20px;
             margin-bottom: 20px;
         }
+        .notification-container {
+            position: fixed;
+            top: 20px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 99999999; /* Very high z-index */
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 90%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+
+        .notification-container.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 250px; /* Fixed height for images */
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #e0e0e0; /* Placeholder background */
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none; /* Hide all slides by default */
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.7s ease-in-out;
+        }
+
+        .slide.active {
+            display: block; /* Show active slide */
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the area, crop if necessary */
+            border-radius: 8px;
+        }
+
+        /* Navigation Buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Close Button */
+        .close-button {
+            padding: 10px 20px;
+            background-color: #ef4444; /* Red-500 */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-button:hover {
+            background-color: #dc2626; /* Red-600 */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .notification-container {
+                width: 95%;
+                padding: 15px;
+            }
+            .slideshow-container {
+                height: 200px;
+            }
+            .close-button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
     @media (max-width: 900px) {
             nav{
                 left: 0;
@@ -552,6 +669,29 @@
         <button onclick="d()">Contact us</button>
     </div>
     <button id="close2"></button>
+    <div id="notification" class="notification-container">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Special Announcement!</h2>
+        <div class="slideshow-container">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <img src="https://placehold.co/500x250/AEC6CF/000000?text=Image+1" alt="Placeholder Image 1" onerror="this.onerror=null;this.src='https://placehold.co/500x250/AEC6CF/000000?text=Image+1';">
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="https://placehold.co/500x250/FFD700/000000?text=Image+2" alt="Placeholder Image 2" onerror="this.onerror=null;this.src='https://placehold.co/500x250/FFD700/000000?text=Image+2';">
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="https://placehold.co/500x250/98FB98/000000?text=Image+3" alt="Placeholder Image 3" onerror="this.onerror=null;this.src='https://placehold.co/500x250/98FB98/000000?text=Image+3';">
+            </div>
+
+            <!-- Navigation buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <button id="closeNotification" class="close-button">Exit Notification</button>
+    </div>
     <script>
          var form = document.getElementById("my-form");
   
@@ -702,6 +842,50 @@
             bodynav.style.transform = 'translateX(1000px)'
             button2close.style.transform = 'translateX(-1000px)'
         }
+        let slideIndex = 0;
+        let slides = [];
+        let slideshowInterval;
+
+        // Function to show slides
+        function showSlides() {
+            let i;
+            slides = document.getElementsByClassName("slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                slides[i].classList.remove('active');
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            slides[slideIndex-1].classList.add('active');
+            // Reset interval to ensure smooth transition after manual navigation
+            clearInterval(slideshowInterval);
+            slideshowInterval = setInterval(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        // Function for manual navigation
+        function plusSlides(n) {
+            slideIndex += n - 1; // Adjust index for next/prev click
+            if (slideIndex < 0) {slideIndex = slides.length -1} // Loop back if going before first
+            if (slideIndex >= slides.length) {slideIndex = 0} // Loop to first if going past last
+            showSlides();
+        }
+
+        // Event listener for the close button
+        document.getElementById('closeNotification').addEventListener('click', function() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('show');
+            clearInterval(slideshowInterval); // Stop the slideshow when closed
+        });
+
+        // Show the notification after a short delay and start slideshow
+        window.onload = function() {
+            const notification = document.getElementById('notification');
+            setTimeout(() => {
+                notification.classList.add('show');
+                showSlides(); // Initial call to display the first slide and start interval
+            }, 500); // Delay for notification to slide in
+        };
     </script>
 </body>
 </html>
